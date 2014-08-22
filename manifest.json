@@ -1,0 +1,11 @@
+{
+    "manifest_version": 2,
+    "name": "Replace Text",
+    "version": "1.0",
+
+    "content_scripts": [ {
+        "js": [ "jquery-2.1.1.min.js","replace.js" ],
+        "matches": [ "<all_urls>" ],
+        "run_at": "document_end"
+    } ]
+}
