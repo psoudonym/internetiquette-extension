@@ -7,7 +7,7 @@
         "js": [ "jquery-2.1.1.min.js","replace.js" ],
         "matches": [ "<all_urls>" ],
         "run_at": "document_end"
-    } ]
+    } ],
 
     "browser_action": [
       {
