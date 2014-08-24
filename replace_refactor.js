@@ -526,13 +526,13 @@ request.onload = function() {
   if (request.status >= 200 && request.status < 400){
     // Success!
     window.data = JSON.parse(request.responseText);
-    Array.prototype.forEach.call(data.mappings, function( bad_phrase, good_phrase ) {
-     var regex = new RegExp(bad_phrase,"ig");
-     findAndReplaceDOMText(document.getElementsByTagName("body")[0], {
+    for (bad_phrase in window.data.mappings) {
+      var regex = new RegExp(bad_phrase,"ig");
+      findAndReplaceDOMText(document.getElementsByTagName("body")[0], {
        find: regex,
-       replace: good_phrase
-     });
-    });
+       replace: window.data.mappings[bad_phrase].toUpperCase()
+      });
+    }
   } else {
     // We reached our target server, but it returned an error
     console.log("failure")
@@ -544,16 +544,3 @@ request.onerror = function() {
 };
 
 request.send();
-
-
-
-/*
-
-findAndReplaceDOMText(document.getElementsByTagName("body")[0], {
-  find: /women/ig,
-  replace: 'boners'
-});
-
-
-
-*/
