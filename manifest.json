@@ -3,10 +3,20 @@
     "name": "Internetiquette",
     "version": "1.0",
 
+
+  "browser_action": {
+    "default_title": "Internetiquette",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+    },
+
     "content_scripts": [ {
         "js": [ "jquery-2.1.1.min.js","replace.js" ],
         "matches": [ "<all_urls>" ],
         "run_at": "document_end"
     }
     ]
+
+
+
 }
